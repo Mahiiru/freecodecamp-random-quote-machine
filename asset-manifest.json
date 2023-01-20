@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/freecodecamp-random-quote-machine/static/css/main.7b7e9013.css",
+    "main.js": "/freecodecamp-random-quote-machine/static/js/main.a2f1d4bb.js",
+    "index.html": "/freecodecamp-random-quote-machine/index.html",
+    "main.7b7e9013.css.map": "/freecodecamp-random-quote-machine/static/css/main.7b7e9013.css.map",
+    "main.a2f1d4bb.js.map": "/freecodecamp-random-quote-machine/static/js/main.a2f1d4bb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7b7e9013.css",
+    "static/js/main.a2f1d4bb.js"
+  ]
+}
