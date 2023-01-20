@@ -1,23 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import { QuoteMachine } from './components/QuoteMachine';
+import { useState, useEffect} from 'react';
 
 function App() {
+  const [author, setAuthor] = useState('');
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    const options = {
+      method: 'GET'
+    };
+    
+    fetch('https://api.quotable.io/random?tags=famous-quotes', options)
+      .then(response => response.json())
+      .then(data => {
+        setAuthor(data.author);
+        setText(data.content);
+      })
+      .catch(err => console.error(err));
+  }, []);
+
+  const handleClick = () => {
+    const options = {
+      method: 'GET'
+    };
+    
+    fetch('https://api.quotable.io/random?tags=famous-quotes', options)
+      .then(response => response.json())
+      .then(data => {
+        setAuthor(data.author);
+        setText(data.content);
+      })
+      .catch(err => console.error(err));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" id="quote-box">
+      <QuoteMachine text={text} author={author}></QuoteMachine>
+      <button type="button" className="btn btn-primary btn-lg" id="new-quote" onClick={handleClick}>New quote</button>
     </div>
   );
 }
